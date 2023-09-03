@@ -1,0 +1,15 @@
+{
+  "ids": {
+    "Athlete": 7
+  },
+  "models": {
+    "Athlete": {
+      "1": "{\"names\":\"Take over the galaxy\",\"lastNames\":\"MWAHAHAHAHAHAHAHAHAHAHAHAHAMWAHAHAHAHAHAHAHAHAHAHAHAHA\",\"id\":1}",
+      "2": "{\"names\":\"destroy alderaan\",\"lastNames\":\"Make sure there are no survivors left!\",\"id\":2}",
+      "3": "{\"names\":\"play space invaders\",\"lastNames\":\"Become the very best!\",\"id\":3}",
+      "4": "{\"names\":\"crush rebel scum\",\"lastNames\":\"Every.Last.One.\",\"id\":4}",
+      "5": "{\"names\":\"string\",\"lastNames\":\"string\",\"documentId\":\"string\",\"age\":0,\"address\":\"string\",\"country\":\"string\",\"city\":\"string\",\"height\":\"string\",\"weight\":\"string\",\"id\":5}",
+      "6": "{\"names\":\"string\",\"lastNames\":\"string\",\"documentId\":\"string\",\"age\":0,\"address\":\"string\",\"country\":\"string\",\"city\":\"string\",\"height\":\"string\",\"weight\":\"string\",\"id\":6}"
+    }
+  }
+}
