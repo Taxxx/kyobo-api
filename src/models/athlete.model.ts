@@ -61,6 +61,12 @@ export class Athlete extends Entity {
   })
   degree?: string;
 
+  @property({
+    type: 'number',
+    required: true,
+  })
+  eventId: number;
+
 
   constructor(data?: Partial<Athlete>) {
     super(data);

@@ -1,4 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Event} from './event.model';
 
 @model()
@@ -29,7 +29,7 @@ export class Championship extends Entity {
   endDate: string;
 
   @hasMany(() => Event)
-  MyChampionshipId: Event[];
+  events: Event[];
 
   constructor(data?: Partial<Championship>) {
     super(data);
