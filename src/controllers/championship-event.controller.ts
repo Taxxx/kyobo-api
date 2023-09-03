@@ -42,7 +42,7 @@ export class ChampionshipEventController {
     @param.path.number('id') id: number,
     @param.query.object('filter') filter?: Filter<Event>,
   ): Promise<Event[]> {
-    return this.championshipRepository.MyChampionshipId(id).find(filter);
+    return this.championshipRepository.events(id).find(filter);
   }
 
   @post('/championships/{id}/events', {
@@ -67,7 +67,7 @@ export class ChampionshipEventController {
       },
     }) event: Omit<Event, 'id'>,
   ): Promise<Event> {
-    return this.championshipRepository.MyChampionshipId(id).create(event);
+    return this.championshipRepository.events(id).create(event);
   }
 
   @patch('/championships/{id}/events', {
@@ -90,7 +90,7 @@ export class ChampionshipEventController {
     event: Partial<Event>,
     @param.query.object('where', getWhereSchemaFor(Event)) where?: Where<Event>,
   ): Promise<Count> {
-    return this.championshipRepository.MyChampionshipId(id).patch(event, where);
+    return this.championshipRepository.events(id).patch(event, where);
   }
 
   @del('/championships/{id}/events', {
@@ -105,6 +105,6 @@ export class ChampionshipEventController {
     @param.path.number('id') id: number,
     @param.query.object('where', getWhereSchemaFor(Event)) where?: Where<Event>,
   ): Promise<Count> {
-    return this.championshipRepository.MyChampionshipId(id).delete(where);
+    return this.championshipRepository.events(id).delete(where);
   }
 }
