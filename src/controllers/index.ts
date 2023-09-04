@@ -12,3 +12,4 @@ export * from './team.controller';
 export * from './academy.controller';
 export * from './academy-athlete.controller';
 export * from './academy-team.controller';
+export * from './athlete-academy.controller';

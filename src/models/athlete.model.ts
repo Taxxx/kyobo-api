@@ -1,5 +1,6 @@
 import {Entity, belongsTo, model, property} from '@loopback/repository';
 import {Team} from './team.model';
+import {Academy} from './academy.model';
 
 @model()
 export class Athlete extends Entity {
@@ -71,10 +72,8 @@ export class Athlete extends Entity {
   @belongsTo(() => Team)
   teamId: number;
 
-  @property({
-    type: 'number',
-  })
-  academyId?: number;
+  @belongsTo(() => Academy)
+  academyId: number;
 
   constructor(data?: Partial<Athlete>) {
     super(data);
