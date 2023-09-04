@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Match} from './match.model';
 
 @model()
 export class Event extends Entity {
@@ -32,6 +33,8 @@ export class Event extends Entity {
   })
   championshipId: number;
 
+  @hasMany(() => Match)
+  matches: Match[];
 
   constructor(data?: Partial<Event>) {
     super(data);
