@@ -71,6 +71,11 @@ export class Athlete extends Entity {
   @belongsTo(() => Team)
   teamId: number;
 
+  @property({
+    type: 'number',
+  })
+  academyId?: number;
+
   constructor(data?: Partial<Athlete>) {
     super(data);
   }

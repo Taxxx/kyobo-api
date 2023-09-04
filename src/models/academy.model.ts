@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Athlete} from './athlete.model';
+import {Team} from './team.model';
 
 // Note: There is no plans to allow aditional data but this is left here just
 // as an example for future references.
@@ -28,6 +30,11 @@ export class Academy extends Entity {
   })
   headmaster?: string;
 
+  @hasMany(() => Athlete)
+  athletes: Athlete[];
+
+  @hasMany(() => Team)
+  teams: Team[];
   // Note: There is no plans to allow aditional data but this is left here just
   // as an example for future references.
 

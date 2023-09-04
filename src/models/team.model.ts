@@ -24,6 +24,11 @@ export class Team extends Entity {
   @hasMany(() => Athlete)
   athletes: Athlete[];
 
+  @property({
+    type: 'number',
+  })
+  academyId?: number;
+
   constructor(data?: Partial<Team>) {
     super(data);
   }
