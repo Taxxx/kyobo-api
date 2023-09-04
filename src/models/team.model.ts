@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Athlete} from './athlete.model';
 
 @model()
 export class Team extends Entity {
@@ -20,6 +21,8 @@ export class Team extends Entity {
   })
   coachName?: string;
 
+  @hasMany(() => Athlete)
+  athletes: Athlete[];
 
   constructor(data?: Partial<Team>) {
     super(data);

@@ -7,3 +7,4 @@ export * from './event-match.controller';
 export * from './event-championship.controller';
 export * from './championship.controller';
 export * from './athlete-team.controller';
+export * from './team-athlete.controller';
