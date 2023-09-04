@@ -18,3 +18,4 @@ export * from './match-participant-team.controller';
 export * from './match-participant.controller';
 export * from './match-participant-match.controller';
 export * from './match.controller';
+export * from './athlete-match.controller';

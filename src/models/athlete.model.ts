@@ -1,6 +1,8 @@
-import {Entity, belongsTo, model, property} from '@loopback/repository';
+import {Entity, belongsTo, model, property, hasMany} from '@loopback/repository';
 import {Team} from './team.model';
 import {Academy} from './academy.model';
+import {Match} from './match.model';
+import {MatchParticipant} from './match-participant.model';
 
 @model()
 export class Athlete extends Entity {
@@ -74,6 +76,9 @@ export class Athlete extends Entity {
 
   @belongsTo(() => Academy)
   academyId: number;
+
+  @hasMany(() => Match, {through: {model: () => MatchParticipant}})
+  matches: Match[];
 
   constructor(data?: Partial<Athlete>) {
     super(data);
