@@ -15,16 +15,14 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Championship,
-  Event,
-} from '../models';
+import {Championship, Event} from '../models';
 import {ChampionshipRepository} from '../repositories';
 
 export class ChampionshipEventController {
   constructor(
-    @repository(ChampionshipRepository) protected championshipRepository: ChampionshipRepository,
-  ) { }
+    @repository(ChampionshipRepository)
+    protected championshipRepository: ChampionshipRepository,
+  ) {}
 
   @get('/championships/{id}/events', {
     responses: {
@@ -61,11 +59,12 @@ export class ChampionshipEventController {
           schema: getModelSchemaRef(Event, {
             title: 'NewEventInChampionship',
             exclude: ['id'],
-            optional: ['championshipId']
+            optional: ['championshipId'],
           }),
         },
       },
-    }) event: Omit<Event, 'id'>,
+    })
+    event: Omit<Event, 'id'>,
   ): Promise<Event> {
     return this.championshipRepository.events(id).create(event);
   }

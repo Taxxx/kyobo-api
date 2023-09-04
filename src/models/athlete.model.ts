@@ -1,4 +1,10 @@
-import {Entity, belongsTo, model, property, hasMany} from '@loopback/repository';
+import {
+  Entity,
+  belongsTo,
+  model,
+  property,
+  hasMany,
+} from '@loopback/repository';
 import {Team} from './team.model';
 import {Academy} from './academy.model';
 import {Match} from './match.model';

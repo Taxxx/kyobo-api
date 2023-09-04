@@ -23,7 +23,7 @@ import {EventRepository} from '../repositories';
 export class EventController {
   constructor(
     @repository(EventRepository)
-    public eventRepository : EventRepository,
+    public eventRepository: EventRepository,
   ) {}
 
   @post('/events')
@@ -52,9 +52,7 @@ export class EventController {
     description: 'Event model count',
     content: {'application/json': {schema: CountSchema}},
   })
-  async count(
-    @param.where(Event) where?: Where<Event>,
-  ): Promise<Count> {
+  async count(@param.where(Event) where?: Where<Event>): Promise<Count> {
     return this.eventRepository.count(where);
   }
 
@@ -70,9 +68,7 @@ export class EventController {
       },
     },
   })
-  async find(
-    @param.filter(Event) filter?: Filter<Event>,
-  ): Promise<Event[]> {
+  async find(@param.filter(Event) filter?: Filter<Event>): Promise<Event[]> {
     return this.eventRepository.find(filter);
   }
 
@@ -106,7 +102,8 @@ export class EventController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Event, {exclude: 'where'}) filter?: FilterExcludingWhere<Event>
+    @param.filter(Event, {exclude: 'where'})
+    filter?: FilterExcludingWhere<Event>,
   ): Promise<Event> {
     return this.eventRepository.findById(id, filter);
   }

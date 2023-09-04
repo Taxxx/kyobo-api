@@ -23,7 +23,7 @@ import {MatchRepository} from '../repositories';
 export class MatchController {
   constructor(
     @repository(MatchRepository)
-    public matchRepository : MatchRepository,
+    public matchRepository: MatchRepository,
   ) {}
 
   @post('/matches')
@@ -52,9 +52,7 @@ export class MatchController {
     description: 'Match model count',
     content: {'application/json': {schema: CountSchema}},
   })
-  async count(
-    @param.where(Match) where?: Where<Match>,
-  ): Promise<Count> {
+  async count(@param.where(Match) where?: Where<Match>): Promise<Count> {
     return this.matchRepository.count(where);
   }
 
@@ -70,9 +68,7 @@ export class MatchController {
       },
     },
   })
-  async find(
-    @param.filter(Match) filter?: Filter<Match>,
-  ): Promise<Match[]> {
+  async find(@param.filter(Match) filter?: Filter<Match>): Promise<Match[]> {
     return this.matchRepository.find(filter);
   }
 
@@ -106,7 +102,8 @@ export class MatchController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Match, {exclude: 'where'}) filter?: FilterExcludingWhere<Match>
+    @param.filter(Match, {exclude: 'where'})
+    filter?: FilterExcludingWhere<Match>,
   ): Promise<Match> {
     return this.matchRepository.findById(id, filter);
   }

@@ -15,16 +15,13 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Team,
-  Athlete,
-} from '../models';
+import {Team, Athlete} from '../models';
 import {TeamRepository} from '../repositories';
 
 export class TeamAthleteController {
   constructor(
     @repository(TeamRepository) protected teamRepository: TeamRepository,
-  ) { }
+  ) {}
 
   @get('/teams/{id}/athletes', {
     responses: {
@@ -61,11 +58,12 @@ export class TeamAthleteController {
           schema: getModelSchemaRef(Athlete, {
             title: 'NewAthleteInTeam',
             exclude: ['id'],
-            optional: ['teamId']
+            optional: ['teamId'],
           }),
         },
       },
-    }) athlete: Omit<Athlete, 'id'>,
+    })
+    athlete: Omit<Athlete, 'id'>,
   ): Promise<Athlete> {
     return this.teamRepository.athletes(id).create(athlete);
   }
@@ -88,7 +86,8 @@ export class TeamAthleteController {
       },
     })
     athlete: Partial<Athlete>,
-    @param.query.object('where', getWhereSchemaFor(Athlete)) where?: Where<Athlete>,
+    @param.query.object('where', getWhereSchemaFor(Athlete))
+    where?: Where<Athlete>,
   ): Promise<Count> {
     return this.teamRepository.athletes(id).patch(athlete, where);
   }
@@ -103,7 +102,8 @@ export class TeamAthleteController {
   })
   async delete(
     @param.path.number('id') id: number,
-    @param.query.object('where', getWhereSchemaFor(Athlete)) where?: Where<Athlete>,
+    @param.query.object('where', getWhereSchemaFor(Athlete))
+    where?: Where<Athlete>,
   ): Promise<Count> {
     return this.teamRepository.athletes(id).delete(where);
   }

@@ -1,22 +1,13 @@
-import {
-  repository,
-} from '@loopback/repository';
-import {
-  param,
-  get,
-  getModelSchemaRef,
-} from '@loopback/rest';
-import {
-  MatchParticipant,
-  Match,
-} from '../models';
+import {repository} from '@loopback/repository';
+import {param, get, getModelSchemaRef} from '@loopback/rest';
+import {MatchParticipant, Match} from '../models';
 import {MatchParticipantRepository} from '../repositories';
 
 export class MatchParticipantMatchController {
   constructor(
     @repository(MatchParticipantRepository)
     public matchParticipantRepository: MatchParticipantRepository,
-  ) { }
+  ) {}
 
   @get('/match-participants/{id}/match', {
     responses: {

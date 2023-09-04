@@ -23,13 +23,15 @@ import {MatchParticipantRepository} from '../repositories';
 export class MatchParticipantController {
   constructor(
     @repository(MatchParticipantRepository)
-    public matchParticipantRepository : MatchParticipantRepository,
+    public matchParticipantRepository: MatchParticipantRepository,
   ) {}
 
   @post('/match-participants')
   @response(200, {
     description: 'MatchParticipant model instance',
-    content: {'application/json': {schema: getModelSchemaRef(MatchParticipant)}},
+    content: {
+      'application/json': {schema: getModelSchemaRef(MatchParticipant)},
+    },
   })
   async create(
     @requestBody({
@@ -106,7 +108,8 @@ export class MatchParticipantController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(MatchParticipant, {exclude: 'where'}) filter?: FilterExcludingWhere<MatchParticipant>
+    @param.filter(MatchParticipant, {exclude: 'where'})
+    filter?: FilterExcludingWhere<MatchParticipant>,
   ): Promise<MatchParticipant> {
     return this.matchParticipantRepository.findById(id, filter);
   }

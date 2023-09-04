@@ -30,4 +30,5 @@ export interface MatchParticipantRelations {
   // describe navigational properties here
 }
 
-export type MatchParticipantWithRelations = MatchParticipant & MatchParticipantRelations;
+export type MatchParticipantWithRelations = MatchParticipant &
+  MatchParticipantRelations;

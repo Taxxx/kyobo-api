@@ -23,7 +23,7 @@ import {TeamRepository} from '../repositories';
 export class TeamController {
   constructor(
     @repository(TeamRepository)
-    public teamRepository : TeamRepository,
+    public teamRepository: TeamRepository,
   ) {}
 
   @post('/teams')
@@ -52,9 +52,7 @@ export class TeamController {
     description: 'Team model count',
     content: {'application/json': {schema: CountSchema}},
   })
-  async count(
-    @param.where(Team) where?: Where<Team>,
-  ): Promise<Count> {
+  async count(@param.where(Team) where?: Where<Team>): Promise<Count> {
     return this.teamRepository.count(where);
   }
 
@@ -70,9 +68,7 @@ export class TeamController {
       },
     },
   })
-  async find(
-    @param.filter(Team) filter?: Filter<Team>,
-  ): Promise<Team[]> {
+  async find(@param.filter(Team) filter?: Filter<Team>): Promise<Team[]> {
     return this.teamRepository.find(filter);
   }
 
@@ -106,7 +102,7 @@ export class TeamController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Team, {exclude: 'where'}) filter?: FilterExcludingWhere<Team>
+    @param.filter(Team, {exclude: 'where'}) filter?: FilterExcludingWhere<Team>,
   ): Promise<Team> {
     return this.teamRepository.findById(id, filter);
   }

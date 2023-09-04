@@ -1,22 +1,13 @@
-import {
-  repository,
-} from '@loopback/repository';
-import {
-  param,
-  get,
-  getModelSchemaRef,
-} from '@loopback/rest';
-import {
-  Match,
-  Event,
-} from '../models';
+import {repository} from '@loopback/repository';
+import {param, get, getModelSchemaRef} from '@loopback/rest';
+import {Match, Event} from '../models';
 import {MatchRepository} from '../repositories';
 
 export class MatchEventController {
   constructor(
     @repository(MatchRepository)
     public matchRepository: MatchRepository,
-  ) { }
+  ) {}
 
   @get('/matches/{id}/event', {
     responses: {

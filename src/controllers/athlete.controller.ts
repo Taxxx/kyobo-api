@@ -23,7 +23,7 @@ import {AthleteRepository} from '../repositories';
 export class AthleteController {
   constructor(
     @repository(AthleteRepository)
-    public athleteRepository : AthleteRepository,
+    public athleteRepository: AthleteRepository,
   ) {}
 
   @post('/athletes')
@@ -52,9 +52,7 @@ export class AthleteController {
     description: 'Athlete model count',
     content: {'application/json': {schema: CountSchema}},
   })
-  async count(
-    @param.where(Athlete) where?: Where<Athlete>,
-  ): Promise<Count> {
+  async count(@param.where(Athlete) where?: Where<Athlete>): Promise<Count> {
     return this.athleteRepository.count(where);
   }
 
@@ -106,7 +104,8 @@ export class AthleteController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Athlete, {exclude: 'where'}) filter?: FilterExcludingWhere<Athlete>
+    @param.filter(Athlete, {exclude: 'where'})
+    filter?: FilterExcludingWhere<Athlete>,
   ): Promise<Athlete> {
     return this.athleteRepository.findById(id, filter);
   }

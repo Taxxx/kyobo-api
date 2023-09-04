@@ -15,16 +15,13 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Event,
-  Match,
-} from '../models';
+import {Event, Match} from '../models';
 import {EventRepository} from '../repositories';
 
 export class EventMatchController {
   constructor(
     @repository(EventRepository) protected eventRepository: EventRepository,
-  ) { }
+  ) {}
 
   @get('/events/{id}/matches', {
     responses: {
@@ -61,11 +58,12 @@ export class EventMatchController {
           schema: getModelSchemaRef(Match, {
             title: 'NewMatchInEvent',
             exclude: ['id'],
-            optional: ['eventId']
+            optional: ['eventId'],
           }),
         },
       },
-    }) match: Omit<Match, 'id'>,
+    })
+    match: Omit<Match, 'id'>,
   ): Promise<Match> {
     return this.eventRepository.matches(id).create(match);
   }

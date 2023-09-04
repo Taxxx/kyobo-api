@@ -23,7 +23,7 @@ import {ChampionshipRepository} from '../repositories';
 export class ChampionshipController {
   constructor(
     @repository(ChampionshipRepository)
-    public championshipRepository : ChampionshipRepository,
+    public championshipRepository: ChampionshipRepository,
   ) {}
 
   @post('/championships')
@@ -106,7 +106,8 @@ export class ChampionshipController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Championship, {exclude: 'where'}) filter?: FilterExcludingWhere<Championship>
+    @param.filter(Championship, {exclude: 'where'})
+    filter?: FilterExcludingWhere<Championship>,
   ): Promise<Championship> {
     return this.championshipRepository.findById(id, filter);
   }

@@ -23,7 +23,7 @@ import {AcademyRepository} from '../repositories';
 export class AcademyController {
   constructor(
     @repository(AcademyRepository)
-    public academyRepository : AcademyRepository,
+    public academyRepository: AcademyRepository,
   ) {}
 
   @post('/academies')
@@ -52,9 +52,7 @@ export class AcademyController {
     description: 'Academy model count',
     content: {'application/json': {schema: CountSchema}},
   })
-  async count(
-    @param.where(Academy) where?: Where<Academy>,
-  ): Promise<Count> {
+  async count(@param.where(Academy) where?: Where<Academy>): Promise<Count> {
     return this.academyRepository.count(where);
   }
 
@@ -106,7 +104,8 @@ export class AcademyController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Academy, {exclude: 'where'}) filter?: FilterExcludingWhere<Academy>
+    @param.filter(Academy, {exclude: 'where'})
+    filter?: FilterExcludingWhere<Academy>,
   ): Promise<Academy> {
     return this.academyRepository.findById(id, filter);
   }

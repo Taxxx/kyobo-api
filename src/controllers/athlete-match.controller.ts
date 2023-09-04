@@ -15,16 +15,14 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Athlete,
-  Match
-} from '../models';
+import {Athlete, Match} from '../models';
 import {AthleteRepository} from '../repositories';
 
 export class AthleteMatchController {
   constructor(
-    @repository(AthleteRepository) protected athleteRepository: AthleteRepository,
-  ) { }
+    @repository(AthleteRepository)
+    protected athleteRepository: AthleteRepository,
+  ) {}
 
   @get('/athletes/{id}/matches', {
     responses: {
@@ -64,7 +62,8 @@ export class AthleteMatchController {
           }),
         },
       },
-    }) match: Omit<Match, 'id'>,
+    })
+    match: Omit<Match, 'id'>,
   ): Promise<Match> {
     return this.athleteRepository.matches(id).create(match);
   }

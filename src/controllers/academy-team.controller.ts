@@ -15,16 +15,14 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  Academy,
-  Team,
-} from '../models';
+import {Academy, Team} from '../models';
 import {AcademyRepository} from '../repositories';
 
 export class AcademyTeamController {
   constructor(
-    @repository(AcademyRepository) protected academyRepository: AcademyRepository,
-  ) { }
+    @repository(AcademyRepository)
+    protected academyRepository: AcademyRepository,
+  ) {}
 
   @get('/academies/{id}/teams', {
     responses: {
@@ -61,11 +59,12 @@ export class AcademyTeamController {
           schema: getModelSchemaRef(Team, {
             title: 'NewTeamInAcademy',
             exclude: ['id'],
-            optional: ['academyId']
+            optional: ['academyId'],
           }),
         },
       },
-    }) team: Omit<Team, 'id'>,
+    })
+    team: Omit<Team, 'id'>,
   ): Promise<Team> {
     return this.academyRepository.teams(id).create(team);
   }
