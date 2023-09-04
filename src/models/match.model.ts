@@ -1,4 +1,4 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Entity, belongsTo, model, property} from '@loopback/repository';
 import {Event} from './event.model';
 
 @model()
@@ -18,26 +18,6 @@ export class Match extends Entity {
     type: 'number',
   })
   bracketNumber?: number;
-
-  @property({
-    type: 'number',
-  })
-  firstParticipantId?: number;
-
-  @property({
-    type: 'number',
-  })
-  secondParticipantId?: number;
-
-  @property({
-    type: 'number',
-  })
-  firstTeamId?: number;
-
-  @property({
-    type: 'number',
-  })
-  secondTeamId?: number;
 
   @property({
     type: 'number',
