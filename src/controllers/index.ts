@@ -8,3 +8,4 @@ export * from './event-championship.controller';
 export * from './championship.controller';
 export * from './athlete-team.controller';
 export * from './team-athlete.controller';
+export * from './team.controller';
