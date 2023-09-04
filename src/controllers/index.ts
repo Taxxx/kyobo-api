@@ -9,3 +9,4 @@ export * from './championship.controller';
 export * from './athlete-team.controller';
 export * from './team-athlete.controller';
 export * from './team.controller';
+export * from './academy.controller';
