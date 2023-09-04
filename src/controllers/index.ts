@@ -13,3 +13,5 @@ export * from './academy.controller';
 export * from './academy-athlete.controller';
 export * from './academy-team.controller';
 export * from './athlete-academy.controller';
+export * from './match-participant-athlete.controller';
+export * from './match-participant-team.controller';
